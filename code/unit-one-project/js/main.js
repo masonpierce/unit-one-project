@@ -21,6 +21,51 @@ const clubs = {
   09: "images/clubs/clubs-r09.svg",
   10: "images/clubs/clubs-r10.svg",
 }
+const diamonds = {
+  A: "images/diamonds/diamonds-A.svg",
+  J: "images/diamonds/diamonds-J.svg",
+  K: "images/diamonds/diamonds-K.svg",
+  Q: "images/diamonds/diamonds-Q.svg",
+  02: "images/diamonds/diamonds-r02.svg",
+  03: "images/diamonds/diamonds-r03.svg",
+  04: "images/diamonds/diamonds-r04.svg",
+  05: "images/diamonds/diamonds-r05.svg",
+  06: "images/diamonds/diamonds-r06.svg",
+  07: "images/diamonds/diamonds-r07.svg",
+  08: "images/diamonds/diamonds-r08.svg",
+  09: "images/diamonds/diamonds-r09.svg",
+  10: "images/diamonds/diamonds-r10.svg",
+}
+const hearts = {
+  A:
+  J:
+  K:
+  Q:
+  02:
+  03:
+  04:
+  05:
+  06:
+  07:
+  08:
+  09:
+  10:
+}
+const spades = {
+  A:
+  J:
+  K:
+  Q:
+  02:
+  03:
+  04:
+  05:
+  06:
+  07:
+  08:
+  09:
+  10:
+}
 
 
 
