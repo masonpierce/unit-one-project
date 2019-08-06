@@ -48,4 +48,20 @@ function buildMasterDeck() {
   return deck;
 }
 
+function drawCard(){
+  var deal = function(){
+    var card = Math.floor(Math.random() * 52) + 1;
+    return deck;
+    deck.splice(card,1);
+};
+} 
+
+function dealerDraw(){
+  var deal = function(){
+    var card = Math.floor(Math.random() * 52) + 1;
+    return deck;
+    deck.splice(card,1);
+};
+}
+
 renderShuffledDeck();
