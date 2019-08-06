@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blackjack</title>
     <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href+
 </head>
 <body>
     <body style="background-color:green; text-align:center">
@@ -18,12 +19,16 @@
             <li>Player can choose to hit or stay until they hit 21 or go over (bust).</li>
             <li>Dealer must hit until 17. All ties favor the dealer.</li>
         </ul>
+<section id="master-deck-container" class="card-container"></section>
+<section id="shuffled-deck-container" class="card-container"></section>
     </div>
-    <button>Hit</button>
-    <button>Stay</button>
-    <button>+</button>
-    <button>-</button>
-    <button>Shuffle Deck</button>
+    <div class="button">
+        <button>Hit</button>
+        <button>Stay</button>
+        <button>+</button>
+        <button>-</button>
+        <button>Shuffle Deck</button>
+    </div>
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -2,7 +2,6 @@
 var suits = ['s', 'c', 'd', 'h'];
 var ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
 
-// build a 'master' deck of 'card' objects used to create shuffled decks
 var masterDeck = buildMasterDeck();
 renderDeckInContainer(masterDeck, document.getElementById('master-deck-container'));
 
@@ -14,10 +13,11 @@ var shuffledContainer = document.getElementById('shuffled-deck-container');
 
 /*----- event listeners -----*/
 document.querySelector('button').addEventListener('click', renderShuffledDeck);
+document.querySelector('button').addEventListener('click', drawCard);
+document.querySelector('button').addEventListener('click', dealerDraw);
 
 /*----- functions -----*/
 function renderShuffledDeck() {
-  // create a copy of the masterDeck (leave masterDeck untouched!)
   var tempDeck = masterDeck.slice();
   shuffledDeck = [];
   while (tempDeck.length) {
@@ -29,7 +29,6 @@ function renderShuffledDeck() {
 
 function renderDeckInContainer(deck, container) {
   container.innerHTML = 'cards';
-  // Let's build the cards as a string of HTML
   var cardsHtml = deck.reduce(function(html, card) {
     return html + `<div class="card ${card.face}"></div>`;
   }, '');
@@ -41,9 +40,7 @@ function buildMasterDeck() {
   suits.forEach(function(suit) {
     ranks.forEach(function(rank) {
       deck.push({
-        // the 'face' property maps to the CSS classes for cards
         face: `${suit}${rank}`,
-        // the 'value' property is set for blackjack, not war
         value: Number(rank) || (rank === 'A' ? 11 : 10)
       });
     });
