@@ -37,19 +37,19 @@ const diamonds = {
   10: "images/diamonds/diamonds-r10.svg",
 }
 const hearts = {
-  A:
-  J:
-  K:
-  Q:
-  02:
-  03:
-  04:
-  05:
-  06:
-  07:
-  08:
-  09:
-  10:
+  A: "images/hearts/hearts-A.svg",
+  J: "images/hearts/hearts-J.svg",
+  K: "images/hearts/hearts-K.svg",
+  Q: "images/hearts/hearts-Q.svg",
+  02: "images/hearts/hearts-r02.svg",
+  03: "images/hearts/hearts-r03.svg",
+  04: "images/hearts/hearts-r04.svg",
+  05: "images/hearts/hearts-r05.svg",
+  06: "images/hearts/hearts-r06.svg",
+  07: "images/hearts/hearts-r07.svg",
+  08: "images/hearts/hearts-r08.svg",
+  09: "images/hearts/hearts-r09.svg",
+  10: "images/hearts/hearts-r10.svg",
 }
 const spades = {
   A:
