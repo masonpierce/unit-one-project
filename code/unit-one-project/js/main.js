@@ -2,6 +2,28 @@
 var suits = ['s', 'c', 'd', 'h'];
 var ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
 
+const backCard = {
+  blue: "images/backs/blue.svg",
+  red: "images/backs/red.svg",
+}
+const clubs = {
+  A: "images/clubs/clubs-A.svg",
+  J: "images/clubs/clubs-J.svg",
+  K: "images/clubs/clubs-K.svg",
+  Q: "images/clubs/clubs-Q.svg",
+  02: "images/clubs/clubs-r02.svg",
+  03: "images/clubs/clubs-r03.svg",
+  04: "images/clubs/clubs-r04.svg",
+  05: "images/clubs/clubs-r05.svg",
+  06: "images/clubs/clubs-r06.svg",
+  07: "images/clubs/clubs-r07.svg",
+  08: "images/clubs/clubs-r08.svg",
+  09: "images/clubs/clubs-r09.svg",
+  10: "images/clubs/clubs-r10.svg",
+}
+
+
+
 var masterDeck = buildMasterDeck();
 renderDeckInContainer(masterDeck, document.getElementById('master-deck-container'));
 
@@ -12,9 +34,9 @@ var shuffledDeck;
 var shuffledContainer = document.getElementById('shuffled-deck-container');
 
 /*----- event listeners -----*/
-document.querySelector('button').addEventListener('click', renderShuffledDeck);
-document.querySelector('button').addEventListener('click', drawCard);
-document.querySelector('button').addEventListener('click', dealerDraw);
+document.querySelector('#Hit').addEventListener('click', renderShuffledDeck);
+document.querySelector('#Stay').addEventListener('click', drawCard);
+document.querySelector('#Shuffle').addEventListener('click', dealerDraw);
 
 /*----- functions -----*/
 function renderShuffledDeck() {
