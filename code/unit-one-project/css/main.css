@@ -21,7 +21,8 @@ button {
     background-color: red;
     color: black;
     height: 50px;
-    width: 50px;
+    width: 100px;
+    flex-wrap: wrap;
 }
 
 .card {
