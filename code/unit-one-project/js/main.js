@@ -1,6 +1,8 @@
 /*----- constants -----*/
 var suits = ['s', 'c', 'd', 'h'];
 var ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
+var deck;
+var masterDeck;
 
 const backCard = {
   blue: "images/backs/blue.svg",
@@ -69,7 +71,6 @@ const spades = {
 
 /*----- app's state (variables) -----*/
 var shuffledDeck;
-var currentPlayer;
 
 /*----- cached element references -----*/
 var shuffledContainer = document.getElementById('shuffled-deck-container');
@@ -112,6 +113,18 @@ function buildMasterDeck() {
   return deck;
 }
 
+function shuffle() {
+  for(var i = 0; i < 2; i++) {
+    for (var x = 0; x < players.length; x++) {
+      var card = deck.pop();
+      players[x].Hand.push(card);
+      renderCard(card, x);
+      updatePoints();
+    }
+  }
+updateDeck();
+}
+
 var currentPlayer = 0;
 function hit() {
   var card = deck.pop();
@@ -151,7 +164,15 @@ function end() {
 }
 
 function deal() {
-
+  for(var i = 0; i < 2; i++) {
+    for (var x = 0; x < players.length; x++){
+      var card = deck.pop();
+      players[x].Hand.push(card);
+      renderCard(card, x);
+      updatePoints();
+    }
+  }
+updateDeck();
 }
 
 renderShuffledDeck();
