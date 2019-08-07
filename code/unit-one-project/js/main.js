@@ -1,6 +1,7 @@
 /*----- constants -----*/
 var suits = ['s', 'c', 'd', 'h'];
 var ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
+var deck = newArray()
 
 const backCard = {
   blue: "images/backs/blue.svg",
@@ -52,19 +53,19 @@ const hearts = {
   10: "images/hearts/hearts-r10.svg",
 }
 const spades = {
-  A:
-  J:
-  K:
-  Q:
-  02:
-  03:
-  04:
-  05:
-  06:
-  07:
-  08:
-  09:
-  10:
+  A: "images/spades/spades-A.svg",
+  J: "images/spades/spades-J.svg",
+  K: "images/spades/spades-K.svg",
+  Q: "images/spades/spades-Q.svg",
+  02: "images/spades/spades-r02.svg",
+  03: "images/spades/spades-r03.svg",
+  04: "images/spades/spades-r04.svg",
+  05: "images/spades/spades-r05.svg",
+  06: "images/spades/spades-r06.svg",
+  07: "images/spades/spades-r07.svg",
+  08: "images/spades/spades-r08.svg",
+  09: "images/spades/spades-r09.svg",
+  10: "images/spades/spades-r10.svg",
 }
 
 
@@ -113,22 +114,6 @@ function buildMasterDeck() {
     });
   });
   return deck;
-}
-
-function drawCard(){
-  var deal = function(){
-    var card = Math.floor(Math.random() * 52) + 1;
-    return deck;
-    deck.splice(card,1);
-};
-} 
-
-function dealerDraw(){
-  var deal = function(){
-    var card = Math.floor(Math.random() * 52) + 1;
-    return deck;
-    deck.splice(card,1);
-};
 }
 
 renderShuffledDeck();
