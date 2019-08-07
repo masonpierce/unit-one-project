@@ -1,7 +1,6 @@
 /*----- constants -----*/
 var suits = ['s', 'c', 'd', 'h'];
 var ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
-var deck = newArray()
 
 const backCard = {
   blue: "images/backs/blue.svg",
@@ -68,21 +67,18 @@ const spades = {
   10: "images/spades/spades-r10.svg",
 }
 
-
-
-var masterDeck = buildMasterDeck();
-renderDeckInContainer(masterDeck, document.getElementById('master-deck-container'));
-
 /*----- app's state (variables) -----*/
 var shuffledDeck;
+var currentPlayer;
 
 /*----- cached element references -----*/
 var shuffledContainer = document.getElementById('shuffled-deck-container');
 
 /*----- event listeners -----*/
-document.querySelector('#Hit').addEventListener('click', renderShuffledDeck);
-document.querySelector('#Stay').addEventListener('click', drawCard);
-document.querySelector('#Shuffle').addEventListener('click', dealerDraw);
+document.querySelector('#Hit').addEventListener('click', hit);
+document.querySelector('#Stay').addEventListener('click', stay);
+document.querySelector('#Shuffle').addEventListener('click', shuffle);
+document.querySelector('#Deal').addEventListener('click', deal)
 
 /*----- functions -----*/
 function renderShuffledDeck() {
@@ -96,7 +92,7 @@ function renderShuffledDeck() {
 }
 
 function renderDeckInContainer(deck, container) {
-  container.innerHTML = 'cards';
+  container.innerHTML = ''
   var cardsHtml = deck.reduce(function(html, card) {
     return html + `<div class="card ${card.face}"></div>`;
   }, '');
@@ -114,6 +110,48 @@ function buildMasterDeck() {
     });
   });
   return deck;
+}
+
+var currentPlayer = 0;
+function hit() {
+  var card = deck.pop();
+  players[currentPlayer].Hand.push(card);
+  renderCard(card, currentPlayer);
+  updatePoints();
+  check();
+}
+
+function check() {
+  if (players[currentPlayer].Points > 21) {
+    document.getElementById('status').innerHTML = 'Player: ' + players[currentPlayer].ID + ' LOST';
+  }
+}
+
+function stay() {
+    if (currentPlayer != players.length-1) {
+      document.getElementById('player_' + currentPlayer).classList.remove('active');
+      currentPlayer += 1;
+      document.getElementById('player_' + currentPlayer).classList.add('active');
+    } else {
+      end();
+    }
+}
+
+function end() {
+  var winner = -1;
+  var score = 0;
+
+  for(var i = 0; i < players.length; i++) {
+    if (players[i].Points > score && players[i].Points < 22) {
+      winner = i;
+    }
+    score = players[i].Points;
+  }
+    document.getElementById('status').innerHTML = 'Winner: Player ' + players[winner].ID;
+}
+
+function deal() {
+
 }
 
 renderShuffledDeck();
