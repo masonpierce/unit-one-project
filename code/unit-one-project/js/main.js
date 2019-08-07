@@ -1,6 +1,10 @@
 /*----- constants -----*/
 var suits = ['s', 'c', 'd', 'h'];
 var ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
+var masterDeck;
+var shuffledDeck;
+var deck;
+var player;
 
 const backCard = {
   blue: "images/backs/blue.svg",
@@ -80,6 +84,19 @@ document.querySelector('#Shuffle').addEventListener('click', shuffle);
 document.querySelector('#Deal').addEventListener('click', deal)
 
 /*----- functions -----*/
+function buildMasterDeck() {
+  var deck = [];
+  suits.forEach(function(suit) {
+    ranks.forEach(function(rank) {
+      deck.push({
+        face: `${suit}${rank}`,
+        value: Number(rank) || (rank === 'A' ? 11 : 10)
+      });
+    });
+  });
+  return deck;
+}
+
 function renderShuffledDeck() {
   var tempDeck = masterDeck.slice();
   shuffledDeck = [];
@@ -96,19 +113,6 @@ function renderDeckInContainer(deck, container) {
     return html + `<div class="card ${card.face}"></div>`;
   }, '');
   container.innerHTML = cardsHtml;
-}
-
-function buildMasterDeck() {
-  var deck = [];
-  suits.forEach(function(suit) {
-    ranks.forEach(function(rank) {
-      deck.push({
-        face: `${suit}${rank}`,
-        value: Number(rank) || (rank === 'A' ? 11 : 10)
-      });
-    });
-  });
-  return deck;
 }
 
 function shuffle() {
